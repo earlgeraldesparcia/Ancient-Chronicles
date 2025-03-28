@@ -30,12 +30,36 @@ public class NPC_OldMan extends Entity{
         try{
             up1 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_2.png"));
+            up3 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_1.png"));
+            up4 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_2.png"));
+            up5 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_1.png"));
+            up6 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_2.png"));
+            up7 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_1.png"));
+            up8 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_up_2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_1.png"));
             down2 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_2.png"));
+            down3 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_1.png"));
+            down4 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_2.png"));
+            down5 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_1.png"));
+            down6 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_2.png"));
+            down7 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_1.png"));
+            down8 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_down_2.png"));
             left1 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_1.png"));
             left2 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_2.png"));
+            left3 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_1.png"));
+            left4 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_2.png"));
+            left5 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_1.png"));
+            left6 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_2.png"));
+            left7 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_1.png"));
+            left8 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_left_2.png"));
             right1 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_1.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_2.png"));
+            right3 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_1.png"));
+            right4 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_2.png"));
+            right5 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_1.png"));
+            right6 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_2.png"));
+            right7 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_1.png"));
+            right8 = ImageIO.read(getClass().getResourceAsStream("/npc/oldman_right_2.png"));
         }catch(IOException e){
             System.out.println(e);
         }

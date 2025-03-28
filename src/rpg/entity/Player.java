@@ -72,21 +72,21 @@ public class Player extends Entity{
             down7 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front7.png"));
             down8 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front8.png"));
             left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left1.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left3.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left4.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left5.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left6.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left7.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left8.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left2.png"));
+            left3 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left3.png"));
+            left4 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left4.png"));
+            left5 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left5.png"));
+            left6 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left6.png"));
+            left7 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left7.png"));
+            left8 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left8.png"));
             right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right1.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right3.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right4.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right5.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right6.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right7.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right8.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right2.png"));
+            right3 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right3.png"));
+            right4 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right4.png"));
+            right5 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right5.png"));
+            right6 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right6.png"));
+            right7 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right7.png"));
+            right8 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right8.png"));
         }catch(IOException e){
             System.out.println(e);
         }

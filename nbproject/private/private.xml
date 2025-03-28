@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/entity/NPC_OldMan.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/maps/world01.txt</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/UI.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/AssetSetter.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/object/OBJ_Key.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/GamePanel.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/entity/Entity.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/CollisionChecker.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/object/OBJ_BigRock.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/object/SuperObject.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/entity/Player.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/RPG/src/rpg/RPG.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/GamePanel.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/Entity.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/Player.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/NPC_OldMan.java</file>
         </group>
     </open-files>
 </project-private>
