@@ -120,6 +120,7 @@ public class Player extends Entity{
             
             //Check NPC Collision
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+            interactNPC(npcIndex);
             
             
             //if collision false, player can move
@@ -204,7 +205,15 @@ public class Player extends Entity{
         }
     }
     
-    
+    public void interactNPC(int i){
+        if(i != 999){
+            if(gp.keyH.enterPressed){
+                gp.gameState = gp.dialogueState;
+                gp.npc[i].speak();
+            }
+        }
+        gp.keyH.enterPressed = false;
+    }
     
     @Override
     public void draw(Graphics2D g2){

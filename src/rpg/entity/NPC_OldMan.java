@@ -24,6 +24,7 @@ public class NPC_OldMan extends Entity{
         speed = 1;
         
         getOldManImage();
+        setDialogue();
     }
     
     public void getOldManImage(){
@@ -65,6 +66,13 @@ public class NPC_OldMan extends Entity{
         }
     }
     
+    public void setDialogue(){
+        dialogues[0] = "Hello, lad!";
+        dialogues[1] = "Dialogue index 1!";
+        dialogues[2] = "Dialogue index 2!";
+        dialogues[3] = "Dialogue index 3!";
+    }
+    
     @Override
     public void setAction(){
         actionLockCounter++;
@@ -89,4 +97,9 @@ public class NPC_OldMan extends Entity{
                 actionLockCounter = 0;
             }
         }
+    
+    @Override
+    public void speak(){
+        super.speak();
+    }
 }

@@ -37,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
     
     TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler();
+    public KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
@@ -45,6 +45,12 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player = new Player(this, keyH);
     public SuperObject obj[] = new SuperObject[10];
     public Entity npc[] = new Entity[10];
+    
+    //GameState
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
+    public final int dialogueState = 3;
     
     
     public GamePanel(){
@@ -58,6 +64,8 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame(){
         aSetter.setObject();
         aSetter.setNPC();
+        aSetter.setObject();
+        gameState = playState;
     }
     
     public void startGameThread(){
@@ -92,15 +100,25 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     public void update() {
-        //Player
-        player.update();
         
-        //NPC
-        for(int i=0; i<npc.length; i++){
-            if(npc[i] != null){
-                npc[i].update();
+        
+        
+        if(gameState == playState){
+            //Player
+            player.update();
+            
+            //NPC
+            for(int i=0; i<npc.length; i++){
+                if(npc[i] != null){
+                    npc[i].update();
+                }
             }
         }
+        if(gameState == pauseState){
+            
+        }
+        
+        
     }
 
     /**
