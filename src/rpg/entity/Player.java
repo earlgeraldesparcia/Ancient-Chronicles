@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import rpg.GamePanel;
 import rpg.KeyHandler;
+import rpg.UtilityTool;
 
 /**
  *
@@ -19,7 +20,9 @@ import rpg.KeyHandler;
  */
 public class Player extends Entity{
     KeyHandler keyH;
+    UtilityTool uTool = new UtilityTool();
     
+    int scale;
     public final int screenX;
     public final int screenY;
     public int hasKey = 0;
@@ -35,12 +38,12 @@ public class Player extends Entity{
         screenY = gp.screenHeight/2 - (gp.tileSize/2);
         
         solidArea = new Rectangle();
-        solidArea.x = 15;
-        solidArea.y = 20;
+        solidArea.x = 38;
+        solidArea.y = 45;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 20;
-        solidArea.height = 20;
+        solidArea.width = 18;
+        solidArea.height = 18;
         
         setDefaultValues();
         getPlayerImage();
@@ -51,46 +54,62 @@ public class Player extends Entity{
         worldY = gp.tileSize * 21;
         speed = 4;
         direction = "down";
+        scale = 5;
+        
+        //status
+        maxLife = 10;
+        life = maxLife;
+    }
+    
+    @Override
+    public BufferedImage setup(String imagePath){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage scaledImage = null;
+        
+        try{
+            scaledImage = ImageIO.read(getClass().getResourceAsStream(imagePath));
+            scaledImage = uTool.scaleImage(scaledImage, gp.tileSize*2, gp.tileSize*2);
+        }catch(IOException e){
+            System.out.println("Ang setup naguba!");
+        }
+        return scaledImage;
     }
     
     public void getPlayerImage(){
-        try{
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back2.png"));
-            up3 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back3.png"));
-            up4 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back4.png"));
-            up5 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back5.png"));
-            up6 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back6.png"));
-            up7 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back7.png"));
-            up8 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_back8.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front2.png"));
-            down3 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front3.png"));
-            down4 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front4.png"));
-            down5 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front5.png"));
-            down6 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front6.png"));
-            down7 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front7.png"));
-            down8 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_front8.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left2.png"));
-            left3 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left3.png"));
-            left4 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left4.png"));
-            left5 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left5.png"));
-            left6 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left6.png"));
-            left7 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left7.png"));
-            left8 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_left8.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right2.png"));
-            right3 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right3.png"));
-            right4 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right4.png"));
-            right5 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right5.png"));
-            right6 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right6.png"));
-            right7 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right7.png"));
-            right8 = ImageIO.read(getClass().getResourceAsStream("/res/player/Vampire/Vampire_right8.png"));
-        }catch(IOException e){
-            System.out.println(e);
-        }
+        up1 = setup("/res/player/Vampire/Vampire_back1.png");
+        up2 = setup("/res/player/Vampire/Vampire_back2.png");
+        up3 = setup("/res/player/Vampire/Vampire_back3.png");
+        up4 = setup("/res/player/Vampire/Vampire_back4.png");
+        up5 = setup("/res/player/Vampire/Vampire_back5.png");
+        up6 = setup("/res/player/Vampire/Vampire_back6.png");
+        up7 = setup("/res/player/Vampire/Vampire_back7.png");
+        up8 = setup("/res/player/Vampire/Vampire_back8.png");
+        down1 = setup("/res/player/Vampire/Vampire_front1.png");
+        down2 = setup("/res/player/Vampire/Vampire_front2.png");
+        down3 = setup("/res/player/Vampire/Vampire_front3.png");
+        down4 = setup("/res/player/Vampire/Vampire_front4.png");
+        down5 = setup("/res/player/Vampire/Vampire_front5.png");
+        down6 = setup("/res/player/Vampire/Vampire_front6.png");
+        down7 = setup("/res/player/Vampire/Vampire_front7.png");
+        down8 = setup("/res/player/Vampire/Vampire_front8.png");
+        left1 = setup("/res/player/Vampire/Vampire_left1.png");
+        left2 = setup("/res/player/Vampire/Vampire_left2.png");
+        left3 = setup("/res/player/Vampire/Vampire_left3.png");
+        left4 = setup("/res/player/Vampire/Vampire_left4.png");
+        left5 = setup("/res/player/Vampire/Vampire_left5.png");
+        left6 = setup("/res/player/Vampire/Vampire_left6.png");
+        left7 = setup("/res/player/Vampire/Vampire_left7.png");
+        left8 = setup("/res/player/Vampire/Vampire_left8.png");
+        right1 = setup("/res/player/Vampire/Vampire_right1.png");
+        right2 = setup("/res/player/Vampire/Vampire_right2.png");
+        right3 = setup("/res/player/Vampire/Vampire_right3.png");
+        right4 = setup("/res/player/Vampire/Vampire_right4.png");
+        right5 = setup("/res/player/Vampire/Vampire_right5.png");
+        right6 = setup("/res/player/Vampire/Vampire_right6.png");
+        right7 = setup("/res/player/Vampire/Vampire_right7.png");
+        right8 = setup("/res/player/Vampire/Vampire_right8.png");
     }
+    
     
     @Override
     public void update(){
@@ -122,6 +141,13 @@ public class Player extends Entity{
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
             interactNPC(npcIndex);
             
+            //check monster collision
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            interactMonster(monsterIndex);
+            
+            //check event
+            gp.eHandler.checkEvent();
+            
             
             //if collision false, player can move
             if(collisionOn == false){
@@ -140,6 +166,54 @@ public class Player extends Entity{
                         break;
                 }
             }
+            
+            spriteCounter++;
+            if(spriteCounter>12){
+                if(spriteNum==1){
+                    spriteNum=2;
+                }
+                else if(spriteNum==2){
+                    spriteNum=3;
+                }
+                else if(spriteNum==3){
+                    spriteNum=4;
+                }
+                else if(spriteNum==4){
+                    spriteNum=5;
+                }
+                else if(spriteNum==5){
+                    spriteNum=6;
+                }
+                else if(spriteNum==6){
+                    spriteNum=7;
+                }
+                else if(spriteNum==7){
+                    spriteNum=8;
+                }
+                else if(spriteNum==8){
+                    spriteNum=1;
+                }
+                spriteCounter = 0;
+            }
+        }else{
+            //Check tile collision
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
+            
+            //Check object collision
+            int objIndex = gp.cChecker.checkObject(this, true);
+            pickUpObject(objIndex);
+            
+            //Check NPC Collision
+            int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+            interactNPC(npcIndex);
+            
+            //check monster collision
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            interactMonster(monsterIndex);
+            
+            //check event
+            gp.eHandler.checkEvent();
             
             spriteCounter++;
             if(spriteCounter>12){
@@ -207,12 +281,13 @@ public class Player extends Entity{
     
     public void interactNPC(int i){
         if(i != 999){
-            if(gp.keyH.enterPressed){
-                gp.gameState = gp.dialogueState;
-                gp.npc[i].speak();
-            }
+            gp.gameState = gp.dialogueState;
+            gp.npc[i].speak();
         }
-        gp.keyH.enterPressed = false;
+    }
+    
+    public void interactMonster(int i){
+        
     }
     
     @Override
@@ -262,6 +337,6 @@ public class Player extends Entity{
                 if(spriteNum==8){image=right8;}
                 break;
         }
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, null);
     }
 }

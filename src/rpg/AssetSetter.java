@@ -4,6 +4,7 @@
  */
 package rpg;
 
+import monster.MON_Boy;
 import object.OBJ_BigRock;
 import object.OBJ_Boots;
 import object.OBJ_Chest;
@@ -65,5 +66,11 @@ public class AssetSetter {
         gp.npc[0].worldX = gp.tileSize*21;
         gp.npc[0].worldY = gp.tileSize*21;
         
+    }
+    
+    public void setMonster() {
+        gp.monster[0] = new MON_Boy(gp);
+        gp.monster[0].worldX = gp.tileSize*23;
+        gp.monster[0].worldY = gp.tileSize*30;
     }
 }

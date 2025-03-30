@@ -7,7 +7,10 @@ package rpg.entity;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import rpg.GamePanel;
+import rpg.UtilityTool;
 
 /**
  *
@@ -33,8 +36,25 @@ public class Entity {
     String dialogues[] = new String[100];
     int dialogueIndex = 0;
     
+    public String name;
+    public int maxLife;
+    public int life;
+    
     public Entity(GamePanel gp){
         this.gp = gp;
+    }
+    
+    public BufferedImage setup(String imagePath){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage scaledImage = null;
+        
+        try{
+            scaledImage = ImageIO.read(getClass().getResourceAsStream(imagePath));
+            scaledImage = uTool.scaleImage(scaledImage, gp.tileSize, gp.tileSize);
+        }catch(IOException e){
+            System.out.println("Ang setup naguba!");
+        }
+        return scaledImage;
     }
     
     public void setAction(){
@@ -70,6 +90,8 @@ public class Entity {
         collisionOn = false;
         gp.cChecker.checkTile(this);
         gp.cChecker.checkObject(this, false);
+        gp.cChecker.checkEntity(this, gp.npc);
+        gp.cChecker.checkEntity(this, gp.monster);
         gp.cChecker.checkPlayer(this);
         
         if(collisionOn == false){
