@@ -55,10 +55,6 @@ public class AssetSetter {
         gp.obj[6] = new OBJ_Boots(gp);
         gp.obj[6].worldX = 37 * gp.tileSize;
         gp.obj[6].worldY = 42 * gp.tileSize;
-        
-        gp.obj[7] = new OBJ_BigRock(gp);
-        gp.obj[7].worldX = 21 * gp.tileSize;
-        gp.obj[7].worldY = 23 * gp.tileSize;
     }
     
     public void setNPC() {
