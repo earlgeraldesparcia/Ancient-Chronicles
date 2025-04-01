@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener{
     GamePanel gp;
     
-    public boolean upPressed,downPressed, leftPressed, rightPressed, enterPressed;
+    public boolean upPressed,downPressed, leftPressed, rightPressed, enterPressed, basicAttack, firstSkill, showPlayerStatus, escapeState;
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
     }
@@ -53,7 +53,6 @@ public class KeyHandler implements KeyListener{
                 }
             }
         }
-        
         //playState
         if(gp.gameState == gp.playState){
             if(code==KeyEvent.VK_W){
@@ -74,18 +73,34 @@ public class KeyHandler implements KeyListener{
             if(code==KeyEvent.VK_ENTER){
                 enterPressed = true;
             }
+            if(code==KeyEvent.VK_SPACE){
+                basicAttack = true;
+            }
+            if(code==KeyEvent.VK_J){
+                firstSkill = true;
+            }
+            if(code==KeyEvent.VK_Q){
+                showPlayerStatus = true;
+            }
+            if(code==KeyEvent.VK_ESCAPE){
+                escapeState = true;
+            }
         }
-        
         //pauseState
         else if(gp.gameState == gp.pauseState){
             if(code==KeyEvent.VK_P){
                 gp.gameState = gp.playState;
             }
         }
-        
         //dialogueState
         else if(gp.gameState == gp.dialogueState){
             if(code == KeyEvent.VK_ENTER){
+                gp.gameState = gp.playState;
+            }
+        }
+        //escapeState
+        else if(gp.gameState == gp.escapeState) {
+            if(code==KeyEvent.VK_ESCAPE) {
                 gp.gameState = gp.playState;
             }
         }
@@ -106,6 +121,15 @@ public class KeyHandler implements KeyListener{
         }
         if(code==KeyEvent.VK_D){
             rightPressed = false;
+        }
+        if(code==KeyEvent.VK_J){
+            firstSkill = false;
+        }
+        if(code==KeyEvent.VK_Q){
+            showPlayerStatus = false;
+        }
+        if(code==KeyEvent.VK_ESCAPE){
+            escapeState = false;
         }
     }
     

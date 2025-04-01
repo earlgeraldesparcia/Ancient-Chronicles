@@ -68,9 +68,9 @@ public class NPC_OldMan extends Entity{
     
     public void setDialogue(){
         dialogues[0] = "Hello, lad!";
-        dialogues[1] = "Dialogue index 1!";
-        dialogues[2] = "Dialogue index 2!";
-        dialogues[3] = "Dialogue index 3!";
+        dialogues[1] = "Good Luck on your journey\nmy Child!";
+        dialogues[2] = "Is there something\nI can help you with?";
+        dialogues[3] = "Woah! Watch where you going\nmy boy.";
     }
     
     @Override

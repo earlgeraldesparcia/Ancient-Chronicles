@@ -9,19 +9,24 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import rpg.GamePanel;
 import rpg.UtilityTool;
+import rpg.entity.Entity;
 
 /**
  *
  * @author earlg
  */
-public class SuperObject {
+public class SuperObject extends Entity{
     public BufferedImage image, image2, image3;
-    public String name;
     public boolean collision = false;
     public int worldX, worldY;
     public Rectangle solidArea = new Rectangle(0,0,48,48);
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
+    
+    public SuperObject(GamePanel gp) {
+        super(gp);
+        this.gp = gp;
+    }
     
     UtilityTool uTool = new UtilityTool();
     

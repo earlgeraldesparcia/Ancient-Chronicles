@@ -6,13 +6,16 @@ package object;
 
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import rpg.GamePanel;
 
 /**
  *
  * @author earlg
  */
 public class OBJ_Chest extends SuperObject{
-    public OBJ_Chest(){
+    public OBJ_Chest(GamePanel gp){
+        super(gp);
+        this.gp = gp;
         name = "Chest";
         
         try{

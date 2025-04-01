@@ -8,14 +8,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import object.SuperObject;
 import rpg.entity.Entity;
+import rpg.entity.Monsters.MON_BlueBoy;
 import rpg.entity.Player;
+import rpg.entity.Skill;
 import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
@@ -41,18 +42,22 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
-    public UI ui = new UI(this);
+    public UI ui = new UI(this, keyH);
     public EventHandler eHandler = new EventHandler(this);
     public Player player = new Player(this, keyH);
     public SuperObject obj[] = new SuperObject[10];
     public Entity npc[] = new Entity[10];
-    public Entity monster[] = new Entity[20];
+    public MON_BlueBoy monster[] = new MON_BlueBoy[20];
+    public Skill skills[] = new Skill[10];
+    public ArrayList<Skill> monsterAttack = new ArrayList<>();
+    
     
     //GameState
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogueState = 3;
+    public final int escapeState = -1;
     public final int titleState = 0;
     
     
@@ -121,9 +126,38 @@ public class GamePanel extends JPanel implements Runnable{
             //Monster
             for(int i=0; i<monster.length; i++){
                 if(monster[i] != null){
-                    monster[i].update();
+                    if(monster[i].alive == true && monster[i].dying == false){
+                        monster[i].updateTwoImages();
+                    }
+                    if(monster[i].alive == false){
+                        monster[i] = null;
+                    }
                 }
             }
+            
+            //firstSkill
+            for(int i=0; i<skills.length; i++){
+                if(skills[i] != null){
+                    if(skills[i].alive == true){
+                        skills[i].updateFirstSkillImages();
+                    }
+                    if(skills[i].alive == false){
+                        skills[i] = null;
+                    }
+                }
+            }
+            //monsterAttack
+            for(int i=0; i<monsterAttack.size(); i++){
+                if(monsterAttack.get(i) != null) {
+                    if(monsterAttack.get(i).alive == true) {
+                        monsterAttack.get(i).updateFirstSkillImages();
+                    }
+                    if(monsterAttack.get(i).alive == false) {
+                        monsterAttack.clear();
+                    } 
+                }
+            }
+            
             
             
         }
@@ -151,14 +185,44 @@ public class GamePanel extends JPanel implements Runnable{
         }else{
             //TILE
             tileM.draw(g2);
-
-            //OBJECT
+            
+            //Object
             for(int i=0; i<obj.length; i++){
                 if(obj[i] != null){
                     obj[i].draw(g2, this);
                 }
             }
-
+            
+            //firstSkill
+            for(int i=0; i<skills.length; i++){
+                if(skills[i] != null){
+                    if(skills[i].alive == true){
+                        skills[i].drawTwoImages(g2);
+                    }
+                    if(skills[i].alive == false){
+                        skills[i] = null;
+                    }
+                }
+            }
+            
+            //Monster
+            for(int i=0; i<monster.length; i++){
+                if(monster[i] != null){
+                    monster[i].drawTwoImages(g2);
+                }
+            }
+            //monsterAttack
+            for(int i=0; i<monsterAttack.size(); i++){
+                if(monsterAttack.get(i) != null) {
+                    if(monsterAttack.get(i).alive == true) {
+                        monsterAttack.get(i).drawTwoImages(g2);
+                    }
+                    if(monsterAttack.get(i).alive == false) {
+                        monsterAttack.clear();
+                    }
+                }
+            }
+            
             //NPC
             for(int i=0; i<npc.length; i++){
                 if(npc[i] != null){
@@ -166,15 +230,6 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
             
-            //Monster
-            for(int i=0; i<monster.length; i++){
-                if(monster[i] != null){
-                    monster[i].draw(g2);
-                }
-            }
-            
-            
-
             //Player
             player.draw(g2);
 

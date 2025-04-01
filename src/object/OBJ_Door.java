@@ -6,13 +6,16 @@ package object;
 
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import rpg.GamePanel;
 
 /**
  *
  * @author earlg
  */
 public class OBJ_Door extends SuperObject{
-        public OBJ_Door(){
+    public OBJ_Door(GamePanel gp){
+        super(gp);
+        this.gp = gp;
         name = "Door";
         
         try{

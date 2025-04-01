@@ -4,20 +4,19 @@
  */
 package object;
 
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import rpg.GamePanel;
 
 /**
  *
  * @author earlg
  */
-public class OBJ_BigRock extends SuperObject{
-    public OBJ_BigRock(GamePanel gp){
+public class OBJ_Sword extends SuperObject{
+    public OBJ_Sword (GamePanel gp) {
         super(gp);
         this.gp = gp;
-        name = "BigRock";
         
-        image = setup("/objects/bigrock.png", gp.tileSize/10, gp.tileSize/10);
+        name = "Normal Sword";
+        image = setup("/objects/sword_normal.png", gp.tileSize, gp.tileSize);
+        attackValue = 1;
     }
 }

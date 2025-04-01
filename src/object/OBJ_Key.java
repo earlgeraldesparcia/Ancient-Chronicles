@@ -6,19 +6,19 @@ package object;
 
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import rpg.GamePanel;
 
 /**
  *
  * @author earlg
  */
 public class OBJ_Key extends SuperObject{
-    public OBJ_Key(){
+    public OBJ_Key(GamePanel gp){
+        super(gp);
+        this.gp = gp;
         name = "Key";
         
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/key.png"));
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+        image = setup("/objects/key.png", gp.tileSize, gp.tileSize);
+        
     }
 }
