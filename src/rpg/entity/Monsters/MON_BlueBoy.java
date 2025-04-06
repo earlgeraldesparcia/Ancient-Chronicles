@@ -41,8 +41,8 @@ public class MON_BlueBoy extends Entity{
         solidArea.y = 20;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 20;
-        solidArea.height = 20;
+        solidArea.width = 40;
+        solidArea.height = 40;
         
         firstSkill = new MonsterWeapon(gp);
         
@@ -100,7 +100,7 @@ public class MON_BlueBoy extends Entity{
         setAction();
         
         collisionOn = false;
-        gp.cChecker.checkTile(this);
+        gp.cChecker.checkTileWorld1(this);
         gp.cChecker.checkObject(this, false);
         gp.cChecker.checkPlayer(this);
         

@@ -45,12 +45,12 @@ public class Player extends Entity{
         screenY = gp.screenHeight/2 - (gp.tileSize/2);
         
         solidArea = new Rectangle();
-        solidArea.x = 38;
+        solidArea.x = 40;
         solidArea.y = 45;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 18;
-        solidArea.height = 18;
+        solidArea.width = 40;
+        solidArea.height = 40;
         
         attackArea.width = 36;
         attackArea.height = 36;
@@ -61,8 +61,8 @@ public class Player extends Entity{
     }
     
     public void setDefaultValues(){
-        worldX = gp.tileSize * 23;
-        worldY = gp.tileSize * 21;
+        worldX = gp.tileSize * 15;
+        worldY = gp.tileSize * 40;
         speed = 4;
         direction = "down";
         scale = 5;
@@ -201,7 +201,7 @@ public class Player extends Entity{
             
             //Check tile collision
             collisionOn = false;
-            gp.cChecker.checkTile(this);
+            gp.cChecker.checkTileWorld1(this);
             
             //Check object collision
             int objIndex = gp.cChecker.checkObject(this, true);

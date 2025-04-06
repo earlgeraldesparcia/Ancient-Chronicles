@@ -18,11 +18,13 @@ import rpg.entity.Monsters.MON_BlueBoy;
 import rpg.entity.Player;
 import rpg.entity.Skill;
 import tile.TileManager;
+import tile.WorldOneGround;
+import tile.WorldOneWall;
 
 public class GamePanel extends JPanel implements Runnable{
     //screen settings
     final int originalTileSize = 16;
-    final int scale = 3;
+    final int scale = 4;
     
     public final int tileSize = originalTileSize * scale;
     public final int maxScreenCol = 16;
@@ -37,7 +39,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     int FPS = 60;
     
-    TileManager tileM = new TileManager(this);
+    TileManager tile = new TileManager(this);
+    WorldOneGround world1Ground = new WorldOneGround(this);
+    WorldOneWall world1Wall = new WorldOneWall(this);
     public KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
@@ -184,7 +188,9 @@ public class GamePanel extends JPanel implements Runnable{
             ui.draw(g2);
         }else{
             //TILE
-            tileM.draw(g2);
+            world1Ground.draw(g2);
+            world1Wall.draw(g2);
+//            tile.draw(g2);
             
             //Object
             for(int i=0; i<obj.length; i++){

@@ -5,56 +5,62 @@
 package tile;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 import rpg.GamePanel;
+import rpg.UtilityTool;
 
 /**
  *
  * @author earlg
  */
-public class TileManager {
+public class WorldOneGround {
     GamePanel gp;
     public Tile[] tile;
     public int mapTileNum[][];
     
-    public TileManager(GamePanel gp) {
+    public WorldOneGround(GamePanel gp){
         this.gp = gp;
         tile = new Tile[10];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
         
         getTileImage();
-        loadMap("/maps/world01.txt");
+        loadMap("/maps/World1_Ground.txt");
     }
     
     public void getTileImage(){
-        try{
-            tile[0] = new Tile();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tile/tutorial_tiles/grass.png"));
-            
-            tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tile/tutorial_tiles/wall.png"));
-            tile[1].collision = true;
-            
-            tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tile/tutorial_tiles/water.png"));
-            tile[2].collision = true;
-            
-            tile[3] = new Tile();
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tile/tutorial_tiles/earth.png"));
-            
-            tile[4] = new Tile();
-            tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tile/tutorial_tiles/tree.png"));
-            tile[4].collision = true;
-            
-            tile[5] = new Tile();
-            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tile/tutorial_tiles/sand.png"));
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+        
+        //Ground Tiles
+        tile[0] = new Tile();
+        tile[0].image = setup("/tiles/ground/blank.png", gp.tileSize, gp.tileSize);
+        tile[0].collision = false;
+        tile[1] = new Tile();
+        tile[1].image = setup("/tiles/ground/ground_pillar.png", gp.tileSize, gp.tileSize);
+        tile[1].collision = false;
+        tile[2] = new Tile();
+        tile[2].image = setup("/tiles/ground/ground_bottom_wall.png", gp.tileSize, gp.tileSize);
+        tile[2].collision = false;
+        tile[3] = new Tile();
+        tile[3].image = setup("/tiles/ground/normal_grass.png", gp.tileSize, gp.tileSize);
+        tile[3].collision = false;
+        tile[4] = new Tile();
+        tile[4].image = setup("/tiles/ground/ground_pillar_left.png", gp.tileSize, gp.tileSize);
+        tile[4].collision = false;
+        tile[5] = new Tile();
+        tile[5].image = setup("/tiles/ground/ground_pillar_right.png", gp.tileSize, gp.tileSize);
+        tile[5].collision = false;
+        
+        
+        
+        
+        
+//            tile[4] = new Tile();
+//            tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/tree.png"));
+//            tile[4].collision = true;
     }
     
     public void loadMap(String filePath){
@@ -69,7 +75,7 @@ public class TileManager {
                 String line = br.readLine();
                 
                 while(col < gp.maxWorldCol){
-                    String numbers[] = line.split(" ");
+                    String numbers[] = line.split("\t");
                     
                     int num = Integer.parseInt(numbers[col]);
                     
@@ -113,8 +119,18 @@ public class TileManager {
                 worldRow++;
             }
         }
+    }
+    
+    public BufferedImage setup(String imagePath, int tileSizeX, int tileSizeY){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage scaledImage = null;
         
-        
-        
+        try{
+            scaledImage = ImageIO.read(getClass().getResourceAsStream(imagePath));
+            scaledImage = uTool.scaleImage(scaledImage, tileSizeX, tileSizeY);
+        }catch(IOException e){
+            System.out.println("Ang setup naguba!");
+        }
+        return scaledImage;
     }
 }

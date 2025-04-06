@@ -4,15 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/GamePanel.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/Skills/FirstSkill.java</file>
             <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/Entity.java</file>
             <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/RPG.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/KeyHandler.java</file>
             <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/Player.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/object/OBJ_Key.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/tile/TileManager.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/CollisionChecker.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/NPC_OldMan.java</file>
             <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/Monsters/MON_BlueBoy.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/UI.java</file>
-            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/entity/Skill.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/tile/WorldOneGround.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/tile/WorldOneWall.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/rpg/AssetSetter.java</file>
+            <file>file:/C:/Users/earlg/OneDrive/Documents/NetBeansProjects/Ancient%20Chronicles/src/tile/Tile.java</file>
         </group>
     </open-files>
 </project-private>

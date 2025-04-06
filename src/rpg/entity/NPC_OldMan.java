@@ -102,4 +102,71 @@ public class NPC_OldMan extends Entity{
     public void speak(){
         super.speak();
     }
+    
+    @Override
+    public void update(){
+        setAction();
+        
+        collisionOn = false;
+        gp.cChecker.checkTileWorld1(this);
+        gp.cChecker.checkObject(this, false);
+        gp.cChecker.checkEntity(this, gp.npc);
+        gp.cChecker.checkEntity(this, gp.monster);
+        gp.cChecker.checkPlayer(this);
+        boolean contactPlayer = gp.cChecker.checkPlayer(this);
+        
+        if(this.type == 2 && contactPlayer ==  true){
+            damagePlayer(attack);
+        }
+        
+        if(collisionOn == false){
+                switch(direction){
+                    case "up":
+                        worldY -= speed;
+                        break;
+                    case "down":
+                        worldY+=speed;
+                        break;
+                    case "left":
+                        worldX-=speed;
+                        break;
+                    case "right":
+                        worldX+=speed;
+                        break;
+                }
+            }
+            
+            spriteCounter++;
+            if(spriteCounter>12){
+                if(spriteNum==1){
+                    spriteNum=2;
+                }
+                else if(spriteNum==2){
+                    spriteNum=3;
+                }
+                else if(spriteNum==3){
+                    spriteNum=4;
+                }
+                else if(spriteNum==4){
+                    spriteNum=5;
+                }
+                else if(spriteNum==5){
+                    spriteNum=6;
+                }
+                else if(spriteNum==6){
+                    spriteNum=7;
+                }
+                else if(spriteNum==7){
+                    spriteNum=8;
+                }
+                else if(spriteNum==8){
+                    spriteNum=1;
+                }
+                spriteCounter = 0;
+            }
+        
+        if(firstSkillCooldown<30){
+            firstSkillCooldown++;
+        }
+    }
 }
